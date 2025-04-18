@@ -14,12 +14,14 @@ export default function Thetask({content, ondelete, updateStatus, state}){
                     
                 <p className="text-xs">{formatDate(content.created_date)}</p>
             </div>
-            <div className="w-1/12">
-            <button onClick={() => ondelete(content.id)}>
+            <div className="w-1/12 flex flex-row items-center justify-center">
+            <button onClick={() => ondelete(content.id)} className="mr-1">
                 <CircleX width={15} height={15}/>
-            </button> <button onClick={() => updateStatus(content.id)}>
-                {content.status === "completed" ? <CircleCheck width={15} height={15}/> : <Circle width={15} height={15}/>}
-            </button>
+            </button> 
+                {content.status === "completed" ? 
+                <CircleCheck width={15} height={15}/>
+                : <button onClick={() => updateStatus(content.id)}> <Circle width={15} height={15}/> </button>
+            }
             </div>
         </div>
     )
