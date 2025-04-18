@@ -1,5 +1,5 @@
 import { Pencil, CircleX, Circle, CircleCheck } from 'lucide-react';
-
+import formatDate from '../helpers/formatDate';
 export default function Thetask({content, ondelete, updateStatus, state}){
 
     const {handleEdit} = state;
@@ -12,7 +12,7 @@ export default function Thetask({content, ondelete, updateStatus, state}){
                 
                     <h3 className="font-medium">{content.title}<button className="ml-3" onClick={()=> handleEdit(content.id)}><Pencil width={15} height={15}/></button></h3>
                     
-                <p className="text-xs">{content.created_date}</p>
+                <p className="text-xs">{formatDate(content.created_date)}</p>
             </div>
             <div className="w-1/12">
             <button onClick={() => ondelete(content.id)}>
